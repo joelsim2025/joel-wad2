@@ -1,1 +1,270 @@
-<h1>Whats's up nga, I am joel</h1>
+<!doctype html>
+<html>
+    <head>
+        <title>Joel Sim | IS216 Web Application Development II</title>
+
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <!-- External stylesheet (best practice: separates content from presentation) -->
+        <link rel="stylesheet" href="index.css" />
+    </head>
+
+    <body>
+
+        <!-- ============ HEADER (position: sticky + flexbox) ============ -->
+        <header class="site-header">
+            <div class="header-inner">
+                <span class="logo">joel<span class="logo-dot">.</span>sim</span>
+
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#bio">About Me</a></li>
+                        <li><a href="#travel">Travel</a></li>
+                        <li><a href="#facts">Facts</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- ============ HERO (flexbox: photo beside text) ============ -->
+        <section class="hero" id="hero">
+            <div class="hero-inner">
+
+                <!-- position: relative parent so the badge can be absolute -->
+                <div class="photo-frame">
+                    <!-- TODO: replace with your own smiling photo, e.g. images/joel.jpg -->
+                    <img src="images/joel.jpg" alt="A photo of Joel smiling" class="profile-photo" />
+                    <span class="photo-badge">Hello!</span>
+                </div>
+
+                <div class="hero-text">
+                    <h1> Hi guys I'm Joel Sim</h1>
+                    <p class="tagline">Information Systems undergraduate at SMU</p>
+                    <p class="hero-sub">
+                        I'm a <strong>Year 2 student at Singapore Management University</strong>,
+                        reading Information Systems. Nothing complicated going on here &mdash;
+                        this is just a small intro page so you can get a sense of who I am.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="#bio" class="btn btn-primary">Read my bio</a>
+                        <a href="#travel" class="btn btn-outline">Watch my travel pick</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ============ PAGE BODY (CSS Grid skeleton: sidebar + main) ============ -->
+        <div class="page">
+
+            <!-- ---------- SIDEBAR ---------- -->
+            <aside class="sidebar">
+
+                <div class="panel">
+                    <h3>Quick Info</h3>
+                    <ul class="info-list">
+                        <li><span class="info-label">School</span> Singapore Management University</li>
+                        <li><span class="info-label">Major</span> Information Systems</li>
+                        <li><span class="info-label">Clubs</span> Ultimate Frisbee and Fintech</li>
+                        <li><span class="info-label">Based in</span> Singapore</li>
+                    </ul>
+                </div>
+
+                <div class="panel">
+                    <h3>Modules</h3>
+                    <ul class="module-list">
+                        <li>Interactive Design Process</li>
+                        <li>Business Process Analysis and Solutioning</li>
+                        <li>Web Application Development 2</li>
+                        <li>Algorithms</li>
+                    </ul>
+                </div>
+
+                <div class="panel panel-accent">
+                    <h3>Find Me</h3>
+                    <p class="panel-note">Say hi &mdash; I reply faster than my code compiles.</p>
+                    <ul class="social-list">
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Instagram</a></li>
+                    </ul>
+                </div>
+
+            </aside>
+
+            <!-- ---------- MAIN CONTENT ---------- -->
+            <main class="main-content">
+
+                <!-- ===== BIOGRAPHY IN A BOX ===== -->
+                <section class="section" id="bio">
+                    <h2>A Little About Me</h2>
+                    <p class="section-sub">The short version, in a box.</p>
+
+                    <div class="bio-box">
+                        <h3 class="bio-heading">Biography</h3>
+
+                        <p class="bio-first">
+                            I'm Joel, and I study Information Systems at Singapore
+                            Management University. It's a course that sits right between
+                            the technical and the business side of things, which suits me
+                            &mdash; I like understanding how a system works as much as I
+                            like arguing about whether it should exist in the first place.
+                        </p>
+
+                        <p>
+                            Most of my free time goes to sport. I follow football and
+                            basketball closely enough that my sleep schedule takes the
+                            blame for it, and I've been playing ultimate frisbee since
+                            I was 14 &mdash; long enough that it's stopped being a hobby
+                            and started being a habit. I support Chelsea, and I've
+                            watched LeBron for as long as I've watched basketball.
+                            Seeing either of them play live is the dream I'm still
+                            saving up for.
+                        </p>
+
+                        <p>
+                            The rest of my time runs on coffee. I drink far more of it
+                            than anyone should, and I'm always happy to be pointed towards
+                            a good cafe. Outside of that you'll usually find me hunting
+                            for food around Singapore or planning a trip I haven't
+                            booked yet.
+                        </p>
+
+                        <p class="bio-signature">&mdash; Joel</p>
+                    </div>
+                </section>
+
+                <!-- ===== TRAVEL VIDEO (autoplay + muted) ===== -->
+                <section class="section" id="travel">
+                    <h2>My Favourite Travel Destination</h2>
+                    <p class="section-sub">Kyoto, Japan &mdash; old capital, quiet streets, best autumn in the world.</p>
+
+                    <p>
+                        Kyoto is the one place I'd go back to without thinking twice. It manages
+                        to be a proper city while still feeling unhurried: temples at the end of
+                        residential lanes, a river you can walk along for hours, and food that
+                        makes the flight home feel premature. Here's a look at it.
+                    </p>
+
+                    <div class="video-box">
+                        <!--
+                            Keep ?autoplay=1&mute=1 in the URL - browsers only allow
+                            auto-play when the video is muted.
+                        -->
+                        <iframe
+                            class="travel-video"
+                            src="https://www.youtube.com/embed/LF1xG9NBtEo?autoplay=1&mute=1"
+                            title="My favourite travel destination: Kyoto, Japan"
+                            allow="autoplay; encrypted-media"
+                            allowfullscreen>
+                        </iframe>
+                        <p class="video-caption">Kyoto, Japan &mdash; plays automatically, muted.</p>
+                    </div>
+                </section>
+
+                <!-- ===== QUICK FACTS (CSS Grid cards) ===== -->
+                <section class="section" id="facts">
+                    <h2>Quick Facts</h2>
+                    <p class="section-sub">Four things worth knowing.</p>
+
+                    <div class="facts-grid">
+                        <div class="fact-card">
+                            <span class="fact-number">306</span>
+                            <span class="fact-label">67<span class="fact-lower">s</span> in 20 seconds</span>
+                        </div>
+                        <div class="fact-card">
+                            <span class="fact-number">3</span>
+                            <span class="fact-label">Shits taken per day</span>
+                        </div>
+                        <div class="fact-card">
+                            <span class="fact-number">17</span>
+                            <span class="fact-label">Countries visited</span>
+                        </div>
+                        <div class="fact-card">
+                            <span class="fact-number">10</span>
+                            <span class="fact-label">Hours of sleep each day</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ===== TRAVEL WISHLIST TABLE ===== -->
+                <section class="section" id="wishlist">
+                    <h2>Travel Wishlist</h2>
+                    <p class="section-sub">Hover over a row.</p>
+
+                    <table class="wishlist-table">
+                        <tr>
+                            <th>Destination</th>
+                            <th>Country</th>
+                            <th>Why</th>
+                            <th>Status</th>
+                        </tr>
+                        <tr>
+                            <td>Kyoto</td>
+                            <td>Japan</td>
+                            <td>Temples, autumn leaves, the food</td>
+                            <td class="status-done">Visited</td>
+                        </tr>
+                        <tr>
+                            <td>Seoul</td>
+                            <td>South Korea</td>
+                            <td>Night markets and street food</td>
+                            <td class="status-done">Visited</td>
+                        </tr>
+                        <tr>
+                            <td>Reykjavik</td>
+                            <td>Iceland</td>
+                            <td>Northern lights</td>
+                            <td class="status-soon">Planned</td>
+                        </tr>
+                        <tr>
+                            <td>Lisbon</td>
+                            <td>Portugal</td>
+                            <td>Trams, tiles and pastel de nata</td>
+                            <td class="status-soon">Planned</td>
+                        </tr>
+                    </table>
+                </section>
+
+                <!-- ===== CONTACT FORM ===== -->
+                <section class="section" id="contact">
+                    <h2>Get In Touch</h2>
+                    <p class="section-sub">This form is a styling exercise &mdash; it doesn't send anything yet.</p>
+
+                    <form class="contact-form" action="#">
+                        <label for="name">Your name</label>
+                        <input type="text" id="name" name="name" placeholder="e.g. Jane Tan" />
+
+                        <label for="email">Your email</label>
+                        <input type="text" id="email" name="email" placeholder="jane.tan.2025@smu.edu.sg" />
+
+                        <label for="topic">What's this about?</label>
+                        <select id="topic" name="topic">
+                            <option value="project">A project</option>
+                            <option value="module">IS216 homework</option>
+                            <option value="travel">Travel recommendations</option>
+                            <option value="other">Something else</option>
+                        </select>
+
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Say something nice..."></textarea>
+
+                        <input type="submit" value="Send Message" class="submit-btn" />
+                    </form>
+                </section>
+
+            </main>
+        </div>
+
+        <!-- ============ FOOTER ============ -->
+        <footer class="site-footer">
+            <p>Built by Joel Sim for IS216 Web Application Development II &mdash; Week 2, CSS Basics.</p>
+        </footer>
+
+    </body>
+</html>

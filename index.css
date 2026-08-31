@@ -1,0 +1,587 @@
+/* =========================================================
+   Joel Sim - IS216 Week 2 (CSS Basics)
+   External stylesheet: content stays in HTML, presentation lives here.
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   1. UNIVERSAL SELECTOR + BOX-SIZING
+   border-box makes width include padding + border, so
+   boxes never overflow their container.
+   --------------------------------------------------------- */
+* {
+    box-sizing: border-box;
+}
+
+
+/* ---------------------------------------------------------
+   2. PAGE BASICS (element selectors + background properties)
+   --------------------------------------------------------- */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: #2b2b2b;
+    background-color: #f4f1ea;
+}
+
+/* Grouped selector - one rule, three elements */
+h1, h2, h3 {
+    color: #1f3a5f;
+    margin-top: 0;
+}
+
+p {
+    line-height: 1.7;
+}
+
+
+/* ---------------------------------------------------------
+   3. LINK STATES (order matters: link, visited, hover, active)
+   --------------------------------------------------------- */
+a:link {
+    color: #1f3a5f;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #1f3a5f;
+}
+
+a:hover {
+    color: #c1502e;
+    text-decoration: underline;
+}
+
+a:active {
+    color: #8a3620;
+}
+
+
+/* ---------------------------------------------------------
+   4. HEADER - position: sticky + flexbox navbar
+   Behaves like a normal element until you scroll past it,
+   then sticks to the top of the window.
+   --------------------------------------------------------- */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: #1f3a5f;
+    border-bottom: 4px solid #c1502e;
+}
+
+.header-inner {
+    max-width: 1080px;
+    margin: 0 auto;            /* auto left/right = horizontally centred */
+    padding: 14px 24px;
+    display: flex;             /* FLEXBOX: one dimension (a row) */
+    justify-content: space-between;   /* main axis: logo left, nav right */
+    align-items: center;              /* cross axis: vertically centred */
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.logo {
+    color: #ffffff;
+    font-size: 1.35em;
+    font-weight: bold;
+    text-transform: lowercase;
+}
+
+.logo-dot {
+    color: #c1502e;
+}
+
+/* Strip the browser's default list look off the nav */
+.main-nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.main-nav a:link,
+.main-nav a:visited {
+    display: block;            /* block = the whole padded area is clickable */
+    color: #d9e2ec;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 0.9em;
+}
+
+.main-nav a:hover {
+    color: #ffffff;
+    background-color: #c1502e;
+    text-decoration: none;
+}
+
+
+/* ---------------------------------------------------------
+   5. HERO - flexbox: photo on the left, text on the right
+   --------------------------------------------------------- */
+.hero {
+    background-color: #ffffff;
+    border-bottom: 1px solid #ded7cb;
+    padding: 50px 24px;
+}
+
+.hero-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+/* position: relative - the badge below is positioned against THIS box */
+.photo-frame {
+    position: relative;
+    width: 260px;
+}
+
+.profile-photo {
+    display: block;
+    width: 100%;
+    border: 5px solid #1f3a5f;
+    border-radius: 12px;
+}
+
+/* position: absolute - taken out of the normal flow and pinned to
+   the nearest positioned ancestor (.photo-frame) */
+.photo-badge {
+    position: absolute;
+    bottom: -14px;
+    left: 20px;
+    background-color: #c1502e;
+    color: #ffffff;
+    padding: 6px 16px;
+    border-radius: 16px;
+    font-size: 0.85em;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.hero-text {
+    flex: 1;                   /* take up the remaining space in the row */
+}
+
+.hero-text h1 {
+    font-size: 2.6em;
+    margin-bottom: 8px;
+}
+
+.tagline {
+    color: #c1502e;
+    font-size: 1.1em;
+    font-weight: bold;
+    font-style: italic;
+    margin: 0 0 14px 0;
+}
+
+.hero-sub {
+    color: #55524d;
+    max-width: 34em;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 24px;
+}
+
+/* Shared button box, then two variations */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 24px;
+    font-weight: bold;
+    font-size: 0.95em;
+}
+
+.btn-primary:link,
+.btn-primary:visited {
+    background-color: #1f3a5f;
+    color: #ffffff;
+    border: 2px solid #1f3a5f;
+}
+
+.btn-primary:hover {
+    background-color: #c1502e;
+    border-color: #c1502e;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.btn-outline:link,
+.btn-outline:visited {
+    background-color: rgba(255, 255, 255, 0);   /* rgba: last value = alpha */
+    color: #1f3a5f;
+    border: 2px solid #1f3a5f;
+}
+
+.btn-outline:hover {
+    background-color: #1f3a5f;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+
+/* ---------------------------------------------------------
+   6. PAGE SKELETON - CSS GRID (two dimensions)
+   Grid for the page layout, flexbox for the bits inside it.
+   --------------------------------------------------------- */
+.page {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 40px 24px;
+    display: grid;
+    grid-template-columns: 1fr 3fr;    /* fr = fraction of free space, 1:3 */
+    grid-template-areas: "sidebar main";
+    gap: 32px;
+}
+
+.sidebar {
+    grid-area: sidebar;
+}
+
+.main-content {
+    grid-area: main;
+}
+
+
+/* ---------------------------------------------------------
+   7. SIDEBAR PANELS (box model: border, padding, margin)
+   --------------------------------------------------------- */
+.panel {
+    background-color: #ffffff;
+    border: 1px solid #ded7cb;
+    border-left: 5px solid #1f3a5f;
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin-bottom: 20px;
+}
+
+.panel-accent {
+    border-left-color: #c1502e;
+}
+
+.panel h3 {
+    font-size: 1.05em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.panel-note {
+    color: #6b6b6b;
+    font-size: 0.9em;
+    font-style: italic;
+}
+
+.info-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.info-list li {
+    padding: 7px 0;
+    border-bottom: 1px solid #efeae1;
+    font-size: 0.92em;
+}
+
+.info-label {
+    display: block;            /* forces the label onto its own line */
+    color: #6b6b6b;
+    font-size: 0.78em;
+    text-transform: uppercase;
+}
+
+.module-list {
+    list-style-type: square;
+    padding-left: 20px;
+    margin: 0;
+}
+
+.module-list li {
+    padding: 4px 0;
+    font-size: 0.92em;
+}
+
+.social-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.social-list a:link,
+.social-list a:visited {
+    display: inline-block;
+    border: 1px solid #ded7cb;
+    border-radius: 14px;
+    padding: 5px 12px;
+    font-size: 0.85em;
+}
+
+.social-list a:hover {
+    background-color: #c1502e;
+    border-color: #c1502e;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+
+/* ---------------------------------------------------------
+   8. SECTIONS
+   --------------------------------------------------------- */
+.section {
+    margin-bottom: 48px;
+}
+
+.section h2 {
+    font-size: 1.7em;
+    margin-bottom: 4px;
+}
+
+.section-sub {
+    color: #6b6b6b;
+    font-style: italic;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+
+/* ---------------------------------------------------------
+   9. THE BIOGRAPHY BOX (the assignment's "box")
+   --------------------------------------------------------- */
+.bio-box {
+    background-color: #ffffff;
+    border: 2px solid #1f3a5f;
+    border-top: 8px solid #c1502e;
+    border-radius: 10px;
+    padding: 30px 34px;
+    width: 100%;
+    margin: 0 auto;            /* centred inside the main column */
+}
+
+.bio-heading {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.1em;
+    padding-bottom: 12px;
+    margin-bottom: 18px;
+    border-bottom: 1px dashed #ded7cb;
+}
+
+.bio-box p {
+    color: #3d3a35;
+    margin-bottom: 16px;
+}
+
+/* First paragraph gets an indent, like a printed book */
+.bio-first {
+    text-indent: 2em;
+}
+
+.bio-signature {
+    text-align: right;
+    font-style: italic;
+    color: #c1502e;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+
+/* ---------------------------------------------------------
+   10. TRAVEL VIDEO
+   --------------------------------------------------------- */
+.video-box {
+    background-color: #ffffff;
+    border: 1px solid #ded7cb;
+    border-radius: 10px;
+    padding: 16px;
+    margin-top: 20px;
+}
+
+.travel-video {
+    display: block;
+    width: 100%;
+    height: 420px;
+    border: 0;
+    border-radius: 6px;
+    background-color: #000000;
+}
+
+.video-caption {
+    text-align: center;
+    color: #6b6b6b;
+    font-size: 0.88em;
+    font-style: italic;
+    margin: 12px 0 0 0;
+}
+
+
+/* ---------------------------------------------------------
+   11. QUICK FACTS - GRID of cards
+   --------------------------------------------------------- */
+.facts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;    /* four equal columns */
+    gap: 16px;
+}
+
+.fact-card {
+    background-color: #ffffff;
+    border: 1px solid #ded7cb;
+    border-bottom: 4px solid #c1502e;
+    border-radius: 8px;
+    padding: 24px 10px;
+    text-align: center;
+}
+
+.fact-number {
+    display: block;
+    font-size: 2.4em;
+    font-weight: bold;
+    color: #1f3a5f;
+}
+
+.fact-label {
+    display: block;
+    color: #6b6b6b;
+    font-size: 0.85em;
+    text-transform: uppercase;
+    margin-top: 6px;
+}
+
+/* The label above is uppercased as a whole. This inner span sets its own
+   text-transform, so that one letter stays lowercase while the rest of
+   the label keeps the uppercase look. */
+.fact-lower {
+    text-transform: lowercase;
+}
+
+
+/* ---------------------------------------------------------
+   12. TABLE STYLING
+   --------------------------------------------------------- */
+.wishlist-table {
+    width: 100%;
+    background-color: #ffffff;
+    border: 1px solid #ded7cb;
+    border-radius: 8px;
+    border-collapse: collapse;   /* merge the double borders into one */
+}
+
+.wishlist-table th {
+    background-color: #1f3a5f;
+    color: #ffffff;
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 0.82em;
+    padding: 12px 14px;
+}
+
+.wishlist-table td {
+    padding: 12px 14px;
+    border-bottom: 1px solid #efeae1;
+    font-size: 0.93em;
+}
+
+/* Highlight the row the mouse is over */
+.wishlist-table tr:hover {
+    background-color: rgba(193, 80, 46, 0.08);
+}
+
+.status-done {
+    color: #2e7d4f;
+    font-weight: bold;
+}
+
+.status-soon {
+    color: #c1502e;
+    font-weight: bold;
+}
+
+
+/* ---------------------------------------------------------
+   13. FORM STYLING (attribute selectors)
+   --------------------------------------------------------- */
+.contact-form {
+    background-color: #ffffff;
+    border: 1px solid #ded7cb;
+    border-radius: 10px;
+    padding: 26px 30px;
+    display: flex;
+    flex-direction: column;    /* stack the fields in a column */
+    gap: 6px;
+}
+
+.contact-form label {
+    display: block;
+    color: #1f3a5f;
+    font-size: 0.85em;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 12px;
+}
+
+.contact-form input[type=text],
+.contact-form select,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #ded7cb;
+    border-radius: 6px;
+    background-color: #faf8f4;
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+    font-size: 0.95em;
+    color: #2b2b2b;
+}
+
+.contact-form input[type=text]:hover,
+.contact-form textarea:hover {
+    border-color: #1f3a5f;
+}
+
+.submit-btn {
+    width: 100%;
+    margin-top: 22px;
+    padding: 13px 24px;
+    background-color: #1f3a5f;
+    color: #ffffff;
+    border: 2px solid #1f3a5f;
+    border-radius: 24px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #c1502e;
+    border-color: #c1502e;
+}
+
+
+/* ---------------------------------------------------------
+   14. FOOTER
+   --------------------------------------------------------- */
+.site-footer {
+    background-color: #1f3a5f;
+    border-top: 4px solid #c1502e;
+    color: #d9e2ec;
+    text-align: center;
+    padding: 26px 24px;
+    font-size: 0.85em;
+}
+
+.site-footer p {
+    margin: 0;
+}
