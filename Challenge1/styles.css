@@ -1,0 +1,99 @@
+/* styles.css - Challenge #1 (Skeleton) */
+body {
+    background-color: aliceblue;
+    color:black;
+    font-family: 'Arial';
+    text-align: center;
+    margin: 0;
+    width: 100%;
+}
+
+.container {
+    max-width: 800px;
+    width: 100%;         /* but shrinks to fit narrow screens */
+    margin: 0 auto;      /* centers it horizontally — same trick as margin:auto for images */
+    padding: 20px;        /* breathing room */
+    box-sizing: border-box;
+}
+
+h1 {
+    color: rgb(231, 80, 105);
+}
+
+.tagline {
+    font-family: 'Times New Roman';
+    color: grey;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.about p {
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.mascot-placeholder {
+    border: 3px solid black; 
+    width: 20%;
+    padding: 10px;
+    margin: 0 auto;
+    border-radius: 15px;
+    background-color: whitesmoke;
+}
+
+#mascot-image {
+    display: block;
+    width: 100%;
+}
+
+.buy-tickets {
+    background-color:rgb(2, 246, 30);
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 0px seashell;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.buy-tickets:hover {
+    background-color:rgb(98, 225, 102);
+    box-shadow: 0px 6px 10px rgba(0, 126, 4, 0.8);   /* shadow grows on hover — feels like it lifts further */
+    transform: translateY(-2px);
+    cursor: pointer;
+}
+
+.make-donation {
+    background-color: blue;
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 0px seashell;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.make-donation:hover {
+    background-color: rgb(92, 92, 220);
+    box-shadow: 0px 6px 10px rgba(255, 2, 221, 0.8);   /* shadow grows on hover — feels like it lifts further */
+    transform: translateY(-2px);
+    cursor: pointer;
+}
+
+.actions {
+    text-align: center;
+}
+
+.buy-tickets, .make-donation {
+    margin: 8px;   
+}
+
+footer {
+    font-size: small;
+    color: gray;
+    border-top: 1px solid lightgray;
+    padding-top: 16px;                 
+    margin-top: 32px;
+}
