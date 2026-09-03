@@ -1,0 +1,52 @@
+/* =========================================================
+   Joel Sim - IS216 Week 3 (Bootstrap)
+   Bootstrap does the layout and components. This file only
+   adds the few things Bootstrap's utilities don't cover.
+   Loaded AFTER bootstrap.min.css so these rules win.
+   ========================================================= */
+
+
+/* Stop the sticky navbar from sitting on top of a section
+   heading when you jump to it with an anchor link. */
+h2, h3 {
+    scroll-margin-top: 80px;
+}
+
+
+/* Bootstrap sizing utilities only do 25/50/75/100 percent,
+   so an exact height needs a rule of its own. */
+.travel-video {
+    height: 420px;
+    border: 0;
+}
+
+
+/* mx-auto needs a width restriction to have anything to centre
+   within. This replaces Bootstrap's w-75, which was too narrow
+   on phones. */
+#joelCarousel {
+    max-width: 860px;
+}
+
+/* object-fit: contain scales the photo down until the WHOLE image
+   fits inside the box - nothing is ever cropped off. (cover, the
+   opposite, fills the box and cuts off the overflow.)
+   The height scales with the viewport so the carousel stays a
+   sensible shape on a phone and on a laptop, and every slide is
+   the same height so the carousel doesn't jump between photos. */
+.carousel-photo {
+    width: 100%;
+    height: 70vh;
+    min-height: 300px;
+    max-height: 600px;
+    object-fit: contain;
+    background-color: #e9ecef;
+}
+
+
+/* The caption sits on top of the photo, so it needs a
+   dark strip behind it to stay readable on light images. */
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.45);
+    border-radius: 8px;
+}

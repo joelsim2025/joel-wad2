@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Joel Sim | Bootstrap Edition</title>
+
+    <!-- Bootstrap CSS goes in the head -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- My own stylesheet goes AFTER Bootstrap, so my rules win where they overlap -->
+    <link href="index3.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- ============================================================
+         NAVBAR  (navbar + nav + dropdown + collapse toggler + form)
+         ============================================================ -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+
+            <a class="navbar-brand fw-bold" href="#top">joel.sim</a>
+
+            <!-- Hamburger button: data-bs-target must match the id below -->
+            <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#mainNav"
+                    aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#top">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#gallery">Gallery</a>
+                    </li>
+
+                    <!-- Dropdown living inside the navbar -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="moreMenu"
+                           role="button" data-bs-toggle="dropdown" aria-expanded="false">More</a>
+                        <ul class="dropdown-menu" aria-labelledby="moreMenu">
+                            <li><a class="dropdown-item" href="#travel">Travel</a></li>
+                            <li><a class="dropdown-item" href="#facts">Quick Facts</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#contact">Contact Me</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search">
+                    <button class="btn btn-outline-light" type="submit">Search</button>
+                </form>
+            </div>
+
+        </div>
+    </nav>
+
+
+    <div class="container my-4" id="top">
+
+        <!-- ============================================================
+             ALERT
+             ============================================================ -->
+        <div class="alert alert-info" role="alert">
+            Welcome to my page! This week's version is rebuilt with Bootstrap 5.
+        </div>
+
+
+        <!-- ============================================================
+             HERO  (jumbotron-style box + 12-column grid)
+             ============================================================ -->
+        <div class="p-5 mb-4 bg-light rounded-3">
+            <div class="row align-items-center">
+
+                <div class="col-12 col-md-4 text-center mb-4 mb-md-0">
+                    <img src="images/joel.jpg" class="img-fluid rounded-3" alt="A photo of Joel">
+                </div>
+
+                <div class="col-12 col-md-8">
+                    <h1 class="display-5 fw-bold">
+                        Hi guys I'm Joel Sim
+                        <span class="badge bg-primary fs-6 align-middle">Year 2</span>
+                    </h1>
+
+                    <p class="lead">
+                        I'm a Year 2 student at Singapore Management University, reading
+                        Information Systems. Nothing complicated going on here &mdash; this
+                        is just a small intro page so you can get a sense of who I am.
+                    </p>
+
+                    <div class="btn-group">
+                        <a href="#about" class="btn btn-primary">Read my bio</a>
+                        <a href="#travel" class="btn btn-outline-primary">Watch my travel pick</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- ============================================================
+             ABOUT  (navs & tabs)
+             ============================================================ -->
+        <h2 class="mb-3" id="about">A Little About Me</h2>
+
+        <ul class="nav nav-tabs" id="aboutTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="bio-tab" data-bs-toggle="tab"
+                        data-bs-target="#bio-pane" type="button" role="tab">Biography</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="modules-tab" data-bs-toggle="tab"
+                        data-bs-target="#modules-pane" type="button" role="tab">Modules</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="info-tab" data-bs-toggle="tab"
+                        data-bs-target="#info-pane" type="button" role="tab">Quick Info</button>
+            </li>
+        </ul>
+
+        <div class="tab-content border border-top-0 rounded-bottom p-4 mb-5" id="aboutTabsContent">
+
+            <!-- Exactly one pane starts with "show active" -->
+            <div class="tab-pane fade show active" id="bio-pane" role="tabpanel">
+                <p>
+                    I'm Joel, and I study Information Systems at Singapore Management
+                    University. It's a course that sits right between the technical and
+                    the business side of things, which suits me &mdash; I like understanding
+                    how a system works as much as I like arguing about whether it should
+                    exist in the first place.
+                </p>
+                <p>
+                    Most of my free time goes to sport. I follow football and basketball
+                    closely enough that my sleep schedule takes the blame for it, and I've
+                    been playing ultimate frisbee since I was 14 &mdash; long enough that
+                    it's stopped being a hobby and started being a habit. I support Chelsea,
+                    and I've watched LeBron for as long as I've watched basketball. Seeing
+                    either of them play live is the dream I'm still saving up for.
+                </p>
+
+                <!-- COLLAPSE: button id must match the target div's id -->
+                <button class="btn btn-secondary btn-sm" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#moreAboutMe"
+                        aria-expanded="false" aria-controls="moreAboutMe">
+                    Read more
+                </button>
+
+                <div class="collapse mt-3" id="moreAboutMe">
+                    <div class="card card-body bg-light">
+                        The other thing I'm reliably found doing is drinking coffee.
+                        I've reached the stage where it no longer wakes me up and I
+                        drink it anyway, which I'm told is the point of no return.
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="modules-pane" role="tabpanel">
+                <p class="mb-2">What I'm taking this semester:</p>
+                <ul>
+                    <li>Interactive Design Process</li>
+                    <li>Business Process Analysis and Solutioning</li>
+                    <li>Web Application Development 2</li>
+                    <li>Algorithms</li>
+                </ul>
+            </div>
+
+            <div class="tab-pane fade" id="info-pane" role="tabpanel">
+                <ul class="list-unstyled mb-0">
+                    <li class="mb-2"><strong>School:</strong> Singapore Management University</li>
+                    <li class="mb-2"><strong>Major:</strong> Information Systems</li>
+                    <li class="mb-2"><strong>Clubs:</strong> Ultimate Frisbee and Fintech</li>
+                    <li class="mb-2"><strong>Based in:</strong> Singapore</li>
+                </ul>
+            </div>
+
+        </div>
+
+
+        <!-- ============================================================
+             GALLERY  (carousel)
+             ============================================================ -->
+        <h2 class="mb-3" id="gallery">Gallery</h2>
+
+        <div id="joelCarousel" class="carousel slide mx-auto mb-5" data-bs-ride="carousel">
+
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#joelCarousel" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#joelCarousel" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#joelCarousel" data-bs-slide-to="2"></button>
+                <button type="button" data-bs-target="#joelCarousel" data-bs-slide-to="3"></button>
+            </div>
+
+            <div class="carousel-inner rounded-3">
+                <div class="carousel-item active">
+                    <img src="images/japan.jpg" class="d-block w-100 carousel-photo" alt="Kyoto, Japan">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Kyoto, Japan</h5>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/korea.jpg" class="d-block w-100 carousel-photo" alt="Busan, South Korea">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Busan, South Korea</h5>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/beach.jpg" class="d-block w-100 carousel-photo" alt="A day at the beach">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Beach day</h5>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/picnic.jpg" class="d-block w-100 carousel-photo" alt="Picnic with friends">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Picnic with friends</h5>
+                    </div>
+                </div>
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#joelCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#joelCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+
+        </div>
+
+
+        <!-- ============================================================
+             QUICK FACTS  (cards in a responsive grid)
+             ============================================================ -->
+        <h2 class="mb-3" id="facts">Quick Facts</h2>
+
+        <div class="row g-3 mb-5">
+            <div class="col-6 col-lg-3">
+                <div class="card text-center h-100">
+                    <div class="card-body">
+                        <h3 class="card-title text-primary">306</h3>
+                        <p class="card-text text-muted">67s in 20 seconds</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-lg-3">
+                <div class="card text-center h-100">
+                    <div class="card-body">
+                        <h3 class="card-title text-primary">3</h3>
+                        <p class="card-text text-muted">Shits taken per day</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-lg-3">
+                <div class="card text-center h-100">
+                    <div class="card-body">
+                        <h3 class="card-title text-primary">17</h3>
+                        <p class="card-text text-muted">Countries visited</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-lg-3">
+                <div class="card text-center h-100">
+                    <div class="card-body">
+                        <h3 class="card-title text-primary">10</h3>
+                        <p class="card-text text-muted">Hours of sleep each day</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ============================================================
+             TRAVEL  (video + table + modal trigger)
+             ============================================================ -->
+        <h2 class="mb-1" id="travel">My Favourite Travel Destination</h2>
+        <p class="text-muted">Kyoto, Japan &mdash; old capital, quiet streets, best autumn in the world.</p>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <iframe class="w-100 rounded travel-video"
+                        src="https://www.youtube.com/embed/LF1xG9NBtEo?autoplay=1&mute=1"
+                        title="My favourite travel destination: Kyoto, Japan"
+                        allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <h3 class="h5">Travel Wishlist</h3>
+        <table class="table table-hover align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th>Destination</th>
+                    <th>Country</th>
+                    <th>Why</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Kyoto</td>
+                    <td>Japan</td>
+                    <td>Temples, autumn leaves, the food</td>
+                    <td><span class="badge bg-success">Visited</span></td>
+                </tr>
+                <tr>
+                    <td>Seoul</td>
+                    <td>South Korea</td>
+                    <td>Night markets and street food</td>
+                    <td><span class="badge bg-success">Visited</span></td>
+                </tr>
+                <tr>
+                    <td>Reykjavik</td>
+                    <td>Iceland</td>
+                    <td>Northern lights</td>
+                    <td><span class="badge bg-warning text-dark">Planned</span></td>
+                </tr>
+                <tr>
+                    <td>Lisbon</td>
+                    <td>Portugal</td>
+                    <td>Trams, tiles and pastel de nata</td>
+                    <td><span class="badge bg-warning text-dark">Planned</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- MODAL: the button's data-bs-target matches the modal's id -->
+        <button type="button" class="btn btn-danger mb-5"
+                data-bs-toggle="modal" data-bs-target="#dreamModal">
+            My dream trip
+        </button>
+
+        <div class="modal fade" id="dreamModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">My dream trip</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="mb-0">
+                            Stamford Bridge to watch Chelsea, tour around London and hike at the Dolomites, then straight plane to America,
+                            to Vegas, LA and then end of with in Philadelphia to watch LeBron. <br><br>
+                            Same trip, same week, no budget for it yet.
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ============================================================
+             CONTACT FORM
+             ============================================================ -->
+        <h2 class="mb-1" id="contact">Get In Touch</h2>
+        <p class="text-muted">This form is a styling exercise &mdash; it doesn't send anything yet.</p>
+
+        <div class="card mb-5">
+            <div class="card-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Your name</label>
+                        <input type="text" class="form-control" id="name" placeholder="e.g. Jane Tan">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Your email</label>
+                        <input type="email" class="form-control" id="email" placeholder="jane.tan.2025@smu.edu.sg">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="topic" class="form-label">What's this about?</label>
+                        <select class="form-select" id="topic">
+                            <option>A project</option>
+                            <option>IS216 homework</option>
+                            <option>Travel recommendations</option>
+                            <option>Something else</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea class="form-control" id="message" rows="4" placeholder="Say something nice..."></textarea>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- ============================================================
+         FOOTER
+         ============================================================ -->
+    <footer class="bg-dark text-light text-center py-4">
+        <p class="mb-0">Built by Joel Sim for IS216 Web Application Development II &mdash; Week 3, Bootstrap.</p>
+    </footer>
+
+
+    <!-- Bootstrap JS at the bottom of the body -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
